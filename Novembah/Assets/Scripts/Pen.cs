@@ -9,6 +9,8 @@ public class Pen : MonoBehaviour
     public GameObject letterC;
     public Transform you;
 
+    public float penSpeed;
+
     List<A> currentAs = new List<A>();
     List<B> currentBs = new List<B>();
     List<C> currentCs = new List<C>();
@@ -20,13 +22,18 @@ public class Pen : MonoBehaviour
 
     }
 
-    // Update is called once per frame
+    // Update is called once per frames
     void Update()
     {
-        
+
         //move
-        
-        
+
+        float moveY = Input.GetAxisRaw("Vertical");
+
+        transform.Translate(Vector2.up * moveY * Time.deltaTime * penSpeed);
+
+
+
         
         //a
         bool attackA = Input.GetKeyDown(KeyCode.A);
