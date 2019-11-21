@@ -4,12 +4,20 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
+    
     public GameObject hByAll;
+    public GameObject idAorB;
+    public GameObject idA;
+    public GameObject idB;
 
+    GameObject[] enemies = new GameObject[4];
 
-    static Random generator = new Random();//?
+    public List<string> currentEnemies = new List<string>();
+
+    
     float spawnTimer;
     bool newYeah = false;
+    int whichOne;
 
     public float speed;
     bool changeDir = false;
@@ -21,6 +29,11 @@ public class EnemySpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        enemies[0] = hByAll;
+        enemies[1] = idAorB;
+        enemies[2] = idA;
+        enemies[3] = idB;
+
         changePos = Random.Range(-4.5f, 4.5f);
 
     }
@@ -28,11 +41,11 @@ public class EnemySpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Spawning();
+        Spawning(enemies);
 
-        //Moving();
-        
+        Moving();
 
+        RemoveEnemy();
 
     }
 
@@ -63,16 +76,19 @@ public class EnemySpawner : MonoBehaviour
         }        
     }
 
-    void Spawning()
+
+    void Spawning(GameObject[] enemies)
     {
 
-        if (newYeah == true)
+        if (newYeah == true && currentEnemies.Count < 8)
         {
-            GameObject HbyAll = Instantiate(hByAll, transform.position, transform.rotation);
-            //HbyAll.transform.Rotate(Vector2.left, 360);
+            whichOne = Random.Range(0, enemies.Length);
+            
+            GameObject enemy = Instantiate(enemies[whichOne], transform.position + new Vector3(-1, 0, 0), transform.rotation);
 
+            currentEnemies.Add("enemy" + currentEnemies.Count);
 
-            spawnTimer = Random.Range(0, 2);
+            spawnTimer = Random.Range(0.4f, 2f);
             newYeah = false;
         }
 
@@ -90,7 +106,17 @@ public class EnemySpawner : MonoBehaviour
     }
 
 
-
+    void RemoveEnemy()
+    {
+        for (int i = 0; i < currentEnemies.Count; i++)
+        {
+            if (GameObject.Find(currentEnemies[i]) == null)
+            {
+                currentEnemies.Remove(currentEnemies[i]);
+            }
+        }
+        
+    }
 
 
 

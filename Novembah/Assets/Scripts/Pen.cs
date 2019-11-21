@@ -8,6 +8,7 @@ public class Pen : MonoBehaviour
     public GameObject letterB;
     public GameObject letterC;
     public Transform you;
+    
 
     public float penSpeed;
 
@@ -15,14 +16,15 @@ public class Pen : MonoBehaviour
     List<B> currentBs = new List<B>();
     List<C> currentCs = new List<C>();
 
+    int lives = 3;
 
-    // Start is called before the first frame update
+    
     void Start()
     {
 
     }
+    
 
-    // Update is called once per frames
     void Update()
     {
 
@@ -57,6 +59,9 @@ public class Pen : MonoBehaviour
             ShootC();
         }
 
+
+        Death();
+
     }
 
 
@@ -89,4 +94,24 @@ public class Pen : MonoBehaviour
         cObject.transform.Rotate(Vector3.right, 360);
 
     }
+
+
+
+    private void OnCollisionEnter(Collision col)
+    {
+        if (col.gameObject.tag != "a" || col.gameObject.tag != "b" || col.gameObject.tag != "c")
+        {
+            lives--;
+        }
+
+    }
+    
+    private void Death()
+    {
+        if (lives == 0)
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
 }

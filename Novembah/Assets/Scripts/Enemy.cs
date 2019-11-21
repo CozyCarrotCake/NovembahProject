@@ -8,22 +8,50 @@ using UnityEngine;
 
 class Enemy : MonoBehaviour
 {
-    public string[] hurtBy = new string[3];
+    
+    protected float speed;
 
-    public float speed;
+    protected float jukeSpeed;
+
+    protected double limitRange;
+    protected double limitPlus;
+    protected double limitMinus;
+
+    protected List<string> hurtBy = new List<string>();
     
 
-
-    public void Hurt()
+    void Update()
     {
-        //if collision with correct from hurtBy
+        Movement();
 
+        OffCamera();
+        
     }
+    
 
 
     public virtual void Movement()
     {
-        transform.Translate(Vector2.left * Time.deltaTime); //forward?
+        transform.Translate(Vector3.left * Time.deltaTime * speed);
     }
+
+
+    public virtual void OnCollisionEnter(Collision col)
+    {
+        
+        Destroy(this.gameObject);
+        
+    }
+    
+    public void OffCamera()
+    {
+        if(transform.position.x < -11)
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
+
+
 
 }

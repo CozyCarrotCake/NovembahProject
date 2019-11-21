@@ -14,8 +14,21 @@ class Letter : MonoBehaviour
     void Update()
     { 
         transform.Translate(Vector3.right * Time.deltaTime * speed);
+
+        OffCamera();
     }
 
+    public void OffCamera()
+    {
+        if (transform.position.x > 10)
+        {
+            Destroy(this.gameObject);
+        }
+    }
 
+    private void OnCollisionEnter(Collision col)
+    {
+        Destroy(this.gameObject);
+    }
 
 }
