@@ -8,7 +8,9 @@ class IdB : IdAorB
     {
         hurtBy.Remove("a");
 
-        speed = 3;
+        speed = 2;
+
+        jukeSpeed = 4;
 
         limitRange = 2;
     }

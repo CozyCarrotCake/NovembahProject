@@ -10,12 +10,15 @@ class Enemy : MonoBehaviour
 {
     
     protected float speed;
-
     protected float jukeSpeed;
+    protected float jukeVar;
+    protected float timer;
 
-    protected double limitRange;
-    protected double limitPlus;
-    protected double limitMinus;
+    protected float midPos;
+    protected float limit;
+    protected float limitRange;
+    protected float limitPlus;
+    protected float limitMinus;
 
     protected List<string> hurtBy = new List<string>();
     
@@ -27,14 +30,12 @@ class Enemy : MonoBehaviour
         OffCamera();
         
     }
-    
-
 
     public virtual void Movement()
     {
-        transform.Translate(Vector3.left * Time.deltaTime * speed);
+        transform.Translate(Vector3.left * Time.deltaTime * speed * timer);
+        
     }
-
 
     public virtual void OnCollisionEnter(Collision col)
     {

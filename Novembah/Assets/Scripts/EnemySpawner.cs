@@ -5,12 +5,23 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     
-    public GameObject hByAll;
+    public GameObject aw;
     public GameObject idAorB;
     public GameObject idA;
     public GameObject idB;
+    public GameObject untAorC;
+    public GameObject untA;
+    public GameObject untC;
+    public GameObject arBorC;
+    public GameObject arB;
+    public GameObject arC;
+    public GameObject ilityAB;
+    public GameObject nkBA;
+    public GameObject rbonaraCA;
+    public GameObject tionAC;
+    public GameObject cab;
 
-    GameObject[] enemies = new GameObject[4];
+    GameObject[] enemies = new GameObject[15];
 
     public List<string> currentEnemies = new List<string>();
 
@@ -29,12 +40,23 @@ public class EnemySpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        enemies[0] = hByAll;
+        enemies[0] = aw;
         enemies[1] = idAorB;
         enemies[2] = idA;
         enemies[3] = idB;
+        enemies[4] = untAorC;
+        enemies[5] = untA;
+        enemies[6] = untC;
+        enemies[7] = arBorC;
+        enemies[8] = arB;
+        enemies[9] = arC;
+        enemies[10] = ilityAB;
+        enemies[11] = nkBA;
+        enemies[12] = rbonaraCA;
+        enemies[13] = tionAC;
+        enemies[14] = cab;
 
-        changePos = Random.Range(-4.5f, 4.5f);
+        changePos = Random.Range(-3.5f, 4.5f);
 
     }
 
@@ -88,7 +110,7 @@ public class EnemySpawner : MonoBehaviour
 
             currentEnemies.Add("enemy" + currentEnemies.Count);
 
-            spawnTimer = Random.Range(0.4f, 2f);
+            spawnTimer = Random.Range(1f, 2.5f);
             newYeah = false;
         }
 
@@ -106,7 +128,7 @@ public class EnemySpawner : MonoBehaviour
     }
 
 
-    void RemoveEnemy()
+    void RemoveEnemy() //Properties här?
     {
         for (int i = 0; i < currentEnemies.Count; i++)
         {

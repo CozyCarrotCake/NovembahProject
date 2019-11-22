@@ -5,35 +5,26 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
-class IdAorB : Aw
+
+class NkBA : OrderEnemy
 {
-    
-    public IdAorB()
+    public NkBA()
     {
-        hurtBy.Remove("c");
+        hurtBy.Add("b");
+        hurtBy.Add("a");
 
-        speed = 4;
+        speed = 2;
 
-        jukeSpeed = 2;
-
-        limitRange = 3;
+        goal = 2.3f;
     }
-
-    public override void Start()
-    {
-        
-        
-    }
-
 
     public override void Movement()
     {
         base.Movement();
+        
+        
+        
     }
-
-    
-    
-
 
 }
 
