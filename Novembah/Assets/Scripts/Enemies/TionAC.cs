@@ -10,8 +10,8 @@ class TionAC : OrderEnemy
 {
     public TionAC()
     {
+        hurtBy.Add("cs");
         hurtBy.Add("a");
-        hurtBy.Add("c");
 
         speed = 2;
 

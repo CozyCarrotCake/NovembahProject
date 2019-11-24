@@ -10,8 +10,8 @@ class IlityAB : OrderEnemy
 {
     public IlityAB()
     {
-        hurtBy.Add("a");
         hurtBy.Add("b");
+        hurtBy.Add("a");
 
         speed = 2;
 

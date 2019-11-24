@@ -317,8 +317,8 @@ MonoBehaviour:
     type: 3}
   tionAC: {fileID: 2186116521917892684, guid: f20f60d2490d306478256e9f4f9a8b77, type: 3}
   cab: {fileID: 6083155307746088896, guid: 0e50e325641fcf1478d00790cef6308a, type: 3}
-  currentEnemies: []
   speed: 10
+  you: {fileID: 774142533}
 --- !u!65 &774142530
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -386,7 +386,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 774142528}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11, y: -4, z: 0}
+  m_LocalPosition: {x: 7.78, y: -4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

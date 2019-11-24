@@ -10,8 +10,8 @@ class RbonaraCA : OrderEnemy
 {
     public RbonaraCA()
     {
-        hurtBy.Add("c");
         hurtBy.Add("a");
+        hurtBy.Add("c");
 
         speed = 2;
 

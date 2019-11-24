@@ -10,8 +10,8 @@ class NkBA : OrderEnemy
 {
     public NkBA()
     {
-        hurtBy.Add("b");
         hurtBy.Add("a");
+        hurtBy.Add("b");
 
         speed = 2;
 

@@ -9,6 +9,7 @@ using UnityEngine;
 class Enemy : MonoBehaviour
 {
     
+
     protected float speed;
     protected float jukeSpeed;
     protected float jukeVar;
@@ -21,7 +22,21 @@ class Enemy : MonoBehaviour
     protected float limitMinus;
 
     protected List<string> hurtBy = new List<string>();
-    
+
+
+    public int Tutorial
+    {
+        get
+        {
+            return Tutorial;
+        }
+        set
+        {
+            Tutorial = 1;
+        }
+    }
+
+
 
     void Update()
     {

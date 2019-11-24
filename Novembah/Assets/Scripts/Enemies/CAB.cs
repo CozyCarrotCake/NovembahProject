@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 using UnityEngine;
 
 
-class CAB : RbonaraCA
+class CAB : IlityAB
 {
     public CAB()
     {
-        hurtBy.Add("b");
+        hurtBy.Add("c");
 
         speed = 2;
 

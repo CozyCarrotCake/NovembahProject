@@ -11,6 +11,18 @@ class OrderEnemy : Enemy
     protected int added = 0;
     protected float goal;
 
+    public float Goal
+    {
+        get
+        {
+            return goal;
+        }
+        set
+        {
+            goal = value;
+        }
+    }
+
     public override void Movement()
     {
         base.Movement();

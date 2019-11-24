@@ -1,6 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 class Aw : Enemy
 {
@@ -20,18 +23,56 @@ class Aw : Enemy
         jukeSpeed = 5;
 
         limitRange = 8;
+    }
+    
+    public bool DoNot
+    {
+        get
+        {
+            return doOne;
+        }
+        set
+        {
+            doOne = value;
+        }
+    }
+
+
+
+    public float JukeSpeed
+    {
+        get
+        {
+            return jukeSpeed;
+        }
+        set
+        {
+            jukeSpeed = value;
+        }
         
-        
+    }
+
+
+    public bool Dead
+    {
+        get
+        {
+            return true;
+        }
+        set
+        {
+            
+        }
     }
 
     public void Start()
     {
-        
+
         limit = (9 - limitRange) / 2;
         if (transform.position.y < limit && transform.position.y > -limit)
         {
-            limitPlus = transform.position.y + limitRange/2;
-            limitMinus = transform.position.y - limitRange/2;
+            limitPlus = transform.position.y + limitRange / 2;
+            limitMinus = transform.position.y - limitRange / 2;
         }
         else if (transform.position.y >= limit)
         {
@@ -44,7 +85,7 @@ class Aw : Enemy
             limitPlus = limitMinus + limitRange;
         }
 
-       
+
 
         midPos = transform.position.y;
         timer = 1;
@@ -57,22 +98,22 @@ class Aw : Enemy
     {
         transform.Translate(Vector3.left * Time.deltaTime * speed * timer);
 
-        if(doOne == true)
+        if (doOne == true)
         {
             SlowAnSpeed();
         }
 
         if (doTwo == true)
         {
-            Jukes(); 
+            Jukes();
         }
-        
+
         if (doThree == true)
         {
             CurvyJukes();
         }
-        
-               
+
+
     }
 
     public void SlowAnSpeed()
@@ -102,7 +143,7 @@ class Aw : Enemy
         transform.Translate(Vector3.up * Time.smoothDeltaTime * jukeSpeed * (jukeVar + 0.2f));
 
 
-        if ((transform.position.y >= limitPlus - 0.5 && transform.position.y <= limitPlus)|| (transform.position.y <= limitMinus + 0.5 && transform.position.y >= limitMinus))
+        if ((transform.position.y >= limitPlus - 0.5 && transform.position.y <= limitPlus) || (transform.position.y <= limitMinus + 0.5 && transform.position.y >= limitMinus))
         {
             jukeSpeed *= -1;
         }
@@ -115,7 +156,7 @@ class Aw : Enemy
             base.OnCollisionEnter(col);
         }
     }
-    
-    
+
+
 
 }
