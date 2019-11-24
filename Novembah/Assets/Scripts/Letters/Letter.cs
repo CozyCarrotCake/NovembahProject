@@ -8,17 +8,18 @@ using UnityEngine;
 class Letter : MonoBehaviour
 {
 
-    public float speed;
+    protected float speed;
 
+    //Alla bokstäver har allt likadant förutom deras hastighet. De båda åker höger tills de antingen krockar med en fiende eller går utanför kameran.
 
-    void Update()
+    void Update() 
     { 
         transform.Translate(Vector3.right * Time.deltaTime * speed);
 
         OffCamera();
     }
 
-    public void OffCamera()
+    void OffCamera()
     {
         if (transform.position.x > 10)
         {
@@ -26,7 +27,7 @@ class Letter : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision col)
+    void OnCollisionEnter(Collision col)
     {
         Destroy(this.gameObject);
     }

@@ -16,11 +16,7 @@ class UntA : UntAorC
     }
 
 
-
-    public override void Movement()
-    {
-        base.Movement();
-    }
+    
 
 }
 

@@ -11,18 +11,10 @@ class CAB : IlityAB
     public CAB()
     {
         hurtBy.Add("c");
-
-        speed = 2;
+        
 
         goal = 0;
     }
-
-    public override void Movement()
-    {
-        base.Movement();
-        
-        
-    }
-
+    
 }
 

@@ -19,24 +19,40 @@ public class Pen : MonoBehaviour
     int lives = 3;
 
     
-    void Start()
-    {
-
-    }
     
 
     void Update()
     {
 
-        //move
+        Move();
 
+        WhichShot();
+        
+
+
+        Death();
+
+    }
+
+    void Move() // Vertikal rörelse, när den kommer under eller över 5 teleporteras man till andra sidan
+    {
         float moveY = Input.GetAxisRaw("Vertical");
 
         transform.Translate(Vector2.up * moveY * Time.deltaTime * penSpeed);
 
+        if (transform.position.y > 5)
+        {
+            transform.position = new Vector3(-8, -4.9f, 0);
+        }
+        else if (transform.position.y < -5)
+        {
+            transform.position = new Vector3(-8, 4.9f, 0);
+        }
+    }
 
-
-        
+     
+    void WhichShot() //Vad man skjuter beror på vad man trycker på
+    {
         //a
         bool attackA = Input.GetKeyDown(KeyCode.A);
         if (attackA == true)
@@ -58,15 +74,10 @@ public class Pen : MonoBehaviour
         {
             ShootC();
         }
-
-
-        Death();
-
     }
 
-
-
-    void ShootA()
+    void ShootA()//Instantierar en A-prefab som jag sparat i letterA objektet som här skapas som aObject objektet, i pennans position och rotation och som läggs
+        //till i currentAs listan
     {
         GameObject aObject = Instantiate(letterA, you.position, you.rotation);
         currentAs.Add(aObject.GetComponent<A>());
@@ -89,15 +100,17 @@ public class Pen : MonoBehaviour
     void ShootC()
     {
         GameObject cObject = Instantiate(letterC, you.position, you.rotation);
+
         currentCs.Add(cObject.GetComponent<C>());
 
+        
         cObject.transform.Rotate(Vector3.right, 360);
-
+        
     }
 
 
 
-    private void OnCollisionEnter(Collision col)
+    private void OnCollisionEnter(Collision col) //Tar skada när den kolliderar med en fiende
     {
         if (col.gameObject.tag != "a" || col.gameObject.tag != "b" || col.gameObject.tag != "c")
         {
@@ -106,7 +119,7 @@ public class Pen : MonoBehaviour
 
     }
     
-    private void Death()
+    private void Death() // Vid 3 slag dör man
     {
         if (lives == 0)
         {

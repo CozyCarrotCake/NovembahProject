@@ -8,8 +8,7 @@ using UnityEngine;
 
 class Enemy : MonoBehaviour
 {
-    
-
+    //variablerna är protected för att skydda de men även för att låta de existera i dess subklasser
     protected float speed;
     protected float jukeSpeed;
     protected float jukeVar;
@@ -21,10 +20,18 @@ class Enemy : MonoBehaviour
     protected float limitPlus;
     protected float limitMinus;
 
+    //En lista där det som skadar fienden läggs till
     protected List<string> hurtBy = new List<string>();
 
+    public string name;
 
-    public int Tutorial
+    public Enemy() //Oklart vi får se
+    {
+        name = "enemy";
+    }
+
+
+    public int Tutorial //Också oklart
     {
         get
         {
@@ -36,9 +43,11 @@ class Enemy : MonoBehaviour
         }
     }
 
+    public string Name { get; set; }//Oklart ocksåå
 
 
-    void Update()
+
+    void Update() // Den update som körs för alla fiender med de två metoder som alla använder och som behövs köras i Update.
     {
         Movement();
 
@@ -46,22 +55,22 @@ class Enemy : MonoBehaviour
         
     }
 
-    public virtual void Movement()
+    public virtual void Movement()//Alla fiender åker vänster, dock med vissa speciella funktioner vilket är varför den är virtual så att andra kan overridea den 
+        //och lägga till specifika rörelsemönster, men det viktiga är att de ändå körs i Update, som enemy är den enda fiendeklassen som har.
     {
         transform.Translate(Vector3.left * Time.deltaTime * speed * timer);
         
     }
 
-    public virtual void OnCollisionEnter(Collision col)
+    public virtual void OnCollisionEnter(Collision col) //Förstörs när de kolliderar, men alla fiender dör av specifika bokstäver vilket gör att de behöver overridea denna
     {
-        
         Destroy(this.gameObject);
         
     }
     
-    public void OffCamera()
+    public void OffCamera() // Den här använder all exakt, när den når denna punkt utanförspelet ska den förstöras
     {
-        if(transform.position.x < -11)
+        if(transform.position.x < -12)
         {
             Destroy(this.gameObject);
         }

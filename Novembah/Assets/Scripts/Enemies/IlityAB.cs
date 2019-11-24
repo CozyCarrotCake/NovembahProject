@@ -12,19 +12,10 @@ class IlityAB : OrderEnemy
     {
         hurtBy.Add("b");
         hurtBy.Add("a");
-
-        speed = 2;
-
+        
         goal = 4.3f;
     }
-
-    public override void Movement()
-    {
-        base.Movement();
-        
-        
-        
-    }
+    
 
 }
 

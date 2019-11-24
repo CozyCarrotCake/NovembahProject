@@ -10,21 +10,12 @@ class TionAC : OrderEnemy
 {
     public TionAC()
     {
-        hurtBy.Add("cs");
+        hurtBy.Add("c");
         hurtBy.Add("a");
-
-        speed = 2;
-
+                
         goal = -4.3f;
     }
-
-    public override void Movement()
-    {
-        base.Movement();
-        
-        
-        
-    }
+    
 
 }
 

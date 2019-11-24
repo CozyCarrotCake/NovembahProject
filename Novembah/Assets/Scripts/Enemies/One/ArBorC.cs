@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
-class ArBorC : Aw
+class ArBorC : OneShotEnemy
 {
-    public ArBorC()
+    public ArBorC() //Skadas inte längre av a
     {
         hurtBy.Remove("a");
 
@@ -22,11 +22,6 @@ class ArBorC : Aw
         doThree = false;
     }
 
-
-
-    public override void Movement()
-    {
-        base.Movement();
-    }
+    
 }
 

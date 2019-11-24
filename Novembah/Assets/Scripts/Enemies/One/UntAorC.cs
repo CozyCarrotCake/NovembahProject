@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using UnityEngine;
 
 
-class UntAorC : Aw
+class UntAorC : OneShotEnemy
 {
-    public UntAorC()
+    public UntAorC() // Har likt de andra av Aw:s subklasser samma metoder som den, förutom att vissa inte längre körs(genom do:s) och vissa variabler är olika
     {
         hurtBy.Remove("b");
 
@@ -21,12 +21,7 @@ class UntAorC : Aw
     }
 
 
-
-    public override void Movement()
-    {
-        base.Movement();
-    }
-
+    
 
 }
 

@@ -21,10 +21,6 @@ class ArC : ArBorC
     }
 
 
-
-    public override void Movement()
-    {
-        base.Movement();
-    }
+    
 }
 

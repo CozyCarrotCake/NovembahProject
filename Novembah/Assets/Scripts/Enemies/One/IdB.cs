@@ -15,10 +15,6 @@ class IdB : IdAorB
         limitRange = 2;
     }
 
-    public override void Movement()
-    {
-        base.Movement();
-    }
-
+    
     
 }

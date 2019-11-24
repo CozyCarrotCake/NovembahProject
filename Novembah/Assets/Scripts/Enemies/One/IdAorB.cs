@@ -5,10 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
-class IdAorB : Aw
+class IdAorB : OneShotEnemy
 {
     
-    public IdAorB()
+    public IdAorB() // Tar bort c från de skadliga och hackade hastigheten från rörelseschemat och lite andra variabelförändringar
     {
         hurtBy.Remove("c");
 
@@ -23,12 +23,7 @@ class IdAorB : Aw
     }
     
 
-
-    public override void Movement()
-    {
-        base.Movement();
-                
-    }
+    
 
     
     
